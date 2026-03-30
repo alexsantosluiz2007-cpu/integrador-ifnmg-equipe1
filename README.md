@@ -1,15 +1,8 @@
-<div align="center">
-<b>Tecnologia em Análise e Desenvolvimento de Sistemas
-<br />
-Práticas Profissionais Integradoras I e II</b>
-<br />
-Prof. Me. Luiz Filipe Carreiro Salazar
-<br />
-Prof. Me. Felipe Túlio de Castro
-</div>
----
-
 # Enunciado do Projeto Integrador 2026
+
+Curso: Tecnologia em Análise e Desenvolvimento de Sistemas
+Disciplina: Práticas Profissionais Integradoras I e II</b>
+Docentes: Prof. Me. Luiz Filipe Carreiro Salazar e Prof. Me. Felipe Túlio de Castro
 
 ## Objetivos
 - Preparar os discentes para situações que envolvam o desenvolvimento de soluções tecnológicas sem o controle do ambiente acadêmico;
