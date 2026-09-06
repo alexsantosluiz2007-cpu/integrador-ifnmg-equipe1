@@ -1,0 +1,704 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body{
+    background:#f5f5f5;
+    color:#222;
+}
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ==============================
+   SIDEBAR
+   ============================== */
+
+.sidebar{
+    width:260px;
+    min-height:100vh;
+    background:#2e7d32;
+    padding:20px;
+    border-right:1px solid #ddd;
+    flex-shrink:0;
+}
+.logo{
+    text-align:justify;
+    margin-bottom:-30px;
+}
+.logo img{
+    margin-left:10px;
+    width: 180px;
+    margin-bottom:20px;
+    margin-top:34px;
+}
+.logo p{
+    color:#888;
+    font-size:14px;
+}
+/* ==============================
+   MENU
+   ============================== */
+
+nav{
+    margin-top:30px;
+}
+nav a{
+    display:block;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:10px;
+    cursor:pointer;
+}
+nav a.active{
+    background:#ffffff;
+    color:white;
+}
+
+.botao-h {
+    display: block;
+    padding: 16px 15px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.botao-h:hover {
+    background-color: #f9fbf9;
+    color: rgb(2, 0, 0);
+}
+.botao-h.ativo {
+    background-color: #f8fbf8;
+    color: rgb(5, 0, 0);
+}
+
+/* ==============================
+   CARD DO ARDUINO
+   ============================== */
+
+.device-card{
+    margin-top:50px;
+    background:white;
+    border:1px solid #ddd;
+    padding:20px;
+    border-radius:15px;
+}
+
+.device-card h3{
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.device-card p{
+    margin-top:8px;
+    font-size:14px;
+}
+
+.device-card span:last-child{
+    font-size:14px;
+}
+
+.status-online{
+    color:#28a745;
+    font-weight:bold;
+}
+
+.status-offline{
+    color:#dc3545;
+    font-weight:bold;
+}
+
+/* ==============================
+   CONTEÚDO
+   ============================== */
+
+.content{
+    flex:1;
+    padding:28px 30px;
+    min-width:0;
+}
+
+/* ==============================
+   CABEÇALHO
+   ============================== */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:5px;
+}
+
+.page-header h1 i{
+    margin-right:8px;
+}
+
+.page-header p{
+    font-size:14px;
+    color:#555;
+}
+
+.top-right{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:14px;
+    color:#222;
+}
+
+.top-right i{
+    font-size:16px;
+}
+
+#relogio{
+    font-size:14px;
+}
+
+/* ==============================
+   FILTRO
+   ============================== */
+
+.filtro{
+    background:white;
+    border:1px solid #e3e3e3;
+    border-radius:12px;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    margin-bottom:12px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+
+.filtro .campo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.filtro label{
+    font-size:12px;
+    color:#444;
+    white-space:nowrap;
+}
+
+.filtro select,
+.filtro input{
+    height:32px;
+    border:1px solid #ddd;
+    background:#f8f8f8;
+    border-radius:5px;
+    padding:0 10px;
+    font-size:12px;
+    color:#333;
+}
+
+.filtro select{
+    width:160px;
+}
+
+.filtro input{
+    width:155px;
+}
+
+#btnConsultar{
+    margin-left:auto;
+    height:34px;
+    padding:0 18px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:12px;
+}
+
+#btnConsultar:hover{
+    background:#256b29;
+}
+
+#btnConsultar i{
+    margin-right:6px;
+}
+
+/* ==============================
+   CARDS DO HISTÓRICO
+   ============================== */
+
+.cards-historico{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.card-historico{
+    background:white;
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+    min-height:78px;
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+
+.icone-card{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    flex-shrink:0;
+}
+
+/* Temperatura */
+
+.temperatura-card .icone-card{
+    background:#fde9e9;
+    color:#c33d3d;
+}
+
+.temperatura-card strong{
+    color:#c33d3d;
+}
+
+/* Umidade */
+
+.umidade-card .icone-card{
+    background:#edf3fb;
+    color:#386ca8;
+}
+
+.umidade-card strong{
+    color:#386ca8;
+}
+
+/* Luminosidade */
+
+.luminosidade-card .icone-card{
+    background:#fff6d9;
+    color:#d6aa24;
+}
+
+.luminosidade-card strong{
+    color:#d6aa24;
+}
+
+/* Texto dos cards */
+
+.card-historico h3{
+    font-size:12px;
+    font-weight:normal;
+    margin-bottom:3px;
+}
+
+.card-historico strong{
+    display:block;
+    font-size:19px;
+    margin-bottom:3px;
+}
+
+.card-historico p{
+    font-size:10px;
+    color:#666;
+}
+
+.separador{
+    margin:0 3px;
+    color:#aaa;
+}
+
+/* ==============================
+   ÁREA DOS GRÁFICOS
+   ============================== */
+
+.graficos-container{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.grafico-box{
+    background:white;
+    border:1px solid #e3e3e3;
+    border-radius:10px;
+    padding:14px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+
+.titulo-grafico{
+    margin-bottom:8px;
+}
+
+.titulo-grafico h2{
+    font-size:13px;
+    margin-bottom:3px;
+}
+
+.titulo-grafico p{
+    font-size:10px;
+    color:#777;
+}
+
+/* ==============================
+   GRÁFICO DE LINHAS
+   ============================== */
+
+.historico-grafico{
+    min-height:300px;
+}
+
+.canvas-container{
+    position:relative;
+    width:100%;
+    height:220px;
+    margin-top:8px;
+}
+
+.canvas-container canvas{
+    width:100% !important;
+    height:100% !important;
+}
+
+/* ==============================
+   GRÁFICO CIRCULAR
+   ============================== */
+
+.distribuicao{
+    min-height:300px;
+}
+
+.distribuicao .titulo-grafico{
+    margin-bottom:5px;
+}
+
+.distribuicao{
+    display:grid;
+    grid-template-columns:130px 1fr;
+    grid-template-rows:auto 1fr;
+    column-gap:12px;
+}
+
+.distribuicao .titulo-grafico{
+    grid-column:1 / 3;
+}
+
+.grafico-circular{
+    width:125px;
+    height:125px;
+    align-self:center;
+    justify-self:center;
+}
+
+.grafico-circular canvas{
+    width:100% !important;
+    height:100% !important;
+}
+
+.legenda-circular{
+    align-self:center;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.item-legenda{
+    display:flex;
+    align-items:flex-start;
+    gap:8px;
+}
+
+.bolinha{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    margin-top:3px;
+    flex-shrink:0;
+}
+
+.bolinha.temperatura{
+    background:#d63c3c;
+}
+
+.bolinha.umidade{
+    background:#376fbd;
+}
+
+.bolinha.luminosidade{
+    background:#f2c21c;
+}
+
+.item-legenda p{
+    font-size:10px;
+    margin-bottom:2px;
+    color:#333;
+}
+
+.item-legenda strong{
+    font-size:15px;
+}
+
+/* ==============================
+   TABELA
+   ============================== */
+
+.tabela-box{
+    background:white;
+    border:1px solid #e3e3e3;
+    margin-top:0;
+    padding:14px;
+    border-radius:10px;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+}
+
+.tabela-header{
+    margin-bottom:10px;
+}
+
+.tabela-header h2{
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+.tabela-header p{
+    font-size:10px;
+    color:#777;
+}
+
+.tabela-scroll{
+    width:100%;
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:11px;
+}
+
+th{
+    background:#fafafa;
+    color:#444;
+    font-weight:bold;
+    font-size:10px;
+    padding:9px 8px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+}
+
+td{
+    padding:10px 8px;
+    border-bottom:1px solid #eee;
+    text-align:center;
+    color:#555;
+}
+
+tbody tr:hover{
+    background:#fafafa;
+}
+
+.temperatura-texto{
+    color:#b83b3b;
+}
+
+.umidade-texto{
+    color:#386ca8;
+}
+
+.luminosidade-texto{
+    color:#c49b17;
+}
+
+/* ==============================
+   STATUS DA TABELA
+   ============================== */
+
+.status-normal{
+    display:inline-block;
+    padding:4px 9px;
+    border-radius:5px;
+    background:#dff2df;
+    color:#39833e;
+    font-size:10px;
+}
+
+/* ==============================
+   INFORMAÇÃO
+   ============================== */
+
+.info-historico{
+    background:#f1f1f1;
+    border-radius:7px;
+    padding:9px 12px;
+    margin-top:10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#666;
+    font-size:10px;
+}
+
+.info-historico i{
+    color:#666;
+    font-size:13px;
+}
+
+/* ==============================
+   BOTÕES GERAIS
+   ============================== */
+
+button{
+    background-color:#2e7d32;
+    color:white;
+    border:none;
+    padding:10px 10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#256b29;
+}
+
+/* ==============================
+   ESTILOS ANTIGOS DO DASHBOARD
+   ============================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.valor{
+    font-size:45px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.dispositivo{
+    background:white;
+    margin-top:20px;
+    padding:20px;
+    border-radius:15px;
+}
+
+.dispositivo button{
+    width:100%;
+    margin-top:20px;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#2e7d32;
+    color:white;
+    cursor:pointer;
+}
+
+/* ==============================
+   RESPONSIVIDADE
+   ============================== */
+
+@media(max-width:1100px){
+
+    .cards-historico{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .graficos-container{
+        grid-template-columns:1fr;
+    }
+
+    .filtro{
+        flex-wrap:wrap;
+    }
+
+    #btnConsultar{
+        margin-left:0;
+    }
+}
+
+@media(max-width:750px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+
+    .device-card{
+        margin-top:30px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .page-header{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .filtro{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .filtro .campo{
+        width:100%;
+    }
+
+    .filtro select,
+    .filtro input{
+        flex:1;
+        width:auto;
+    }
+
+    #btnConsultar{
+        width:100%;
+    }
+
+    .distribuicao{
+        grid-template-columns:1fr;
+    }
+
+    .distribuicao .titulo-grafico{
+        grid-column:1;
+    }
+
+    .grafico-circular{
+        margin:15px auto;
+    }
+
+    .legenda-circular{
+        margin-top:10px;
+    }
+}
