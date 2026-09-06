@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dispositivo</title>
+
+    <link rel="stylesheet" href="styledis.css">
+
+    <script src="https://kit.fontawesome.com/6cc4df822f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- ==============================
+             MENU LATERAL
+        =============================== -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo">
+            </div>
+            <nav>
+
+                <a href="dashboard.html" class="botao-h">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+
+                <a href="historico.html" class="botao-h">
+                    <i class="fas fa-chart-line"></i> Histórico
+                </a>
+
+                <a href="dispositivo.html" class="botao-h ativo">
+                    <i class="fas fa-microchip"></i> Dispositivos
+                </a>
+
+                <a href="alertas.html" class="botao-h">
+                    <i class="fas fa-bell"></i> Alertas
+                </a>
+
+                <a href="perfil.html" class="botao-h">
+                    <i class="fas fa-user"></i> Perfil
+                </a>
+
+                <a href="../index.html" class="botao-h">
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </nav>
+        </aside>
+        <!-- ==============================
+             CONTEÚDO PRINCIPAL
+        =============================== -->
+        <main class="conteudo-dispositivo">
+            <!-- CABEÇALHO -->
+            <div class="cabecalho-dispositivo">
+
+                <h1>Olá, Usuário!</h1>
+                <p>
+                    Bem-vindo ao seu painel de gerenciamento de dispositivos!
+                </p>
+                <div class="relogio">
+                    <i class="far fa-clock"></i>
+                    <span id="relogio">11:47:11</span>
+                </div>
+            </div>
+
+            <!-- ==============================
+                 HARDWARE PRINCIPAL
+            =============================== -->
+            <section class="hardware-card">
+                <!-- IMAGEM DO ARDUINO -->
+                <div class="arduino-imagem">
+                    <img src="img/arduinomega.png"
+                         alt="Arduino Mega 2560">
+
+                </div>
+
+                <!-- INFORMAÇÕES -->
+                <div class="hardware-informacoes">
+                    <h2>
+                        Hardware Principal: Arduino Mega 2560
+                    </h2>
+                    <div class="informacoes-grid">
+
+                        <!-- COLUNA 1 -->
+                        <div>
+                            <p>
+                                <strong>Placa:</strong>
+                                Arduino Mega 2560
+                            </p>
+                            <p>
+                                <strong>Status:</strong>
+                                <span class="status-offline" id="statusArduino">
+                                    ● offline
+                                </span>
+                            </p>
+                            <p>
+                                <strong>Conexão:</strong>
+                                USB Serial (COM3)
+                            </p>
+                            <p>
+                                <strong>Voltagem:</strong>
+                                5V
+                            </p>
+                            <p>
+                                <strong>Memória:</strong>
+                                256KB Flash / 8KB SRAM
+                            </p>
+                        </div>
+                        <!-- COLUNA 2 -->
+                        <div>
+                            <p>
+                                <strong>Processador:</strong>
+                                ATmega2560
+                            </p>
+                            <p>
+                                <strong>Voltagem:</strong>
+                                5V
+                            </p>
+                            <p>
+                                <strong>Memória:</strong>
+                                256KB Flash / 8KB SRAM
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ==============================
+                 SENSORES
+            =============================== -->
+            <section class="sensores-card">
+                <h2>Sensores Conectados</h2>
+                <div class="tabela-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ícone</th>
+                                <th>Nome de Sensor</th>
+                                <th>Tipo de Medição</th>
+                                <th>Porta / Pino</th>
+                                <th>Protocolo</th>
+                                <th>Status</th>
+                                <th>Leitura Atual</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- TEMPERATURA -->
+                            <tr>
+                                <td class="icone-sensor temperatura">
+                                    <i class="fas fa-temperature-high"></i>
+                                </td>
+                                <td>DHT22</td>
+                                <td>Temperatura (°C)</td>
+                                <td>D2</td>
+                                <td>One-wire Digital</td>
+                                <td>
+                                    <td>
+    <span id="statusTemperatura" class="status-inativo">
+        ● inativo
+    </span>
+</td>
+                                </td>
+                                <td id="temperaturaAtual">
+                                    0°C
+                                </td>
+                            </tr>
+
+
+                            <!-- UMIDADE -->
+                            <tr>
+                                <td class="icone-sensor umidade">
+                                    <i class="fas fa-tint"></i>
+                                </td>
+                                <td>DHT22</td>
+                                <td>Umidade Relativa (%)</td>
+                                <td>D2</td>
+                                <td>One-wire Digital</td>
+                                <td>
+                                    <td>
+    <span id="statusUmidade" class="status-inativo">
+        ● inativo
+    </span>
+</td>
+                                </td>
+                                <td id="umidadeAtual">
+                                    0 %
+                                </td>
+                            </tr>
+                            <!-- LUMINOSIDADE -->
+                            <tr>
+                                <td class="icone-sensor luminosidade">
+                                    <i class="fas fa-sun"></i>
+                                </td>
+                                <td>BH1750</td>
+                                <td>Luminosidade (lux)</td>
+                                <td>SDA/SCL (I2C 0x23)</td>
+                                <td>I2C Digital</td>
+                                <td>
+                                    <td>
+    <span id="statusLuminosidade" class="status-inativo">
+        ● Inativo
+    </span>
+</td>
+                                </td>
+                                <td id="luminosidadeAtual">
+                                    0 lux
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+<script src="dis.js"></script>
+</body>
+
+</html>

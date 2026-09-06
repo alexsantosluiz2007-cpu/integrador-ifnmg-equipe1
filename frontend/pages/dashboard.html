@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/6cc4df822f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- MENU -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo">
+            </div>
+            <nav>
+                <a href="dashboard.html" class="botao-h">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="historico.html" class="botao-h">
+                    <i class="fas fa-chart-line"></i> Histórico
+                </a>
+                <a href="dispositivo.html" class="botao-h">
+                    <i class="fas fa-microchip"></i> Dispositivos
+                </a>
+                <a href="alertas.html" class="botao-h">
+                    <i class="fas fa-bell"></i> Alertas
+                </a>
+                <a href="perfil.html" class="botao-h">
+                    <i class="fas fa-user"></i>  Perfil
+                </a>
+                <a href="../index.html" class="botao-h">
+                    <i class="fas fa-sign-out-alt"></i>  Sair
+                </a>
+            </nav>
+            
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="content">
+            <header>
+                <div>
+                    <h1>Olá, <span id="nomeUsuario">Usuário</span>!</h1>
+                    <p>Bem-vindo ao seu painel de monitoramento!</p>
+                </div>
+                <div class="top-right">
+                    <span id="relogio"></span>
+                </div>
+            </header>
+
+            <!-- CARDS -->
+            <section class="cards">
+                <div class="card">
+                    <h2><i class="fas fa-thermometer-half"></i> Temperatura</h2>
+                    <div class="valor">
+                        <span id="temperatura">0</span> °C
+                    </div>
+                    <p>Ambiente atual</p>
+                </div>
+                <div class="card">
+                    <h2><i class="fas fa-tint"></i> Umidade</h2>
+                    <div class="valor">
+                        <span id="umidade">0</span> %
+                    </div>
+                    <p>Umidade relativa</p>
+                </div>
+                <div class="card">
+                    <h2><i class="fas fa-sun"></i> Luminosidade</h2>
+                    <div class="valor">
+                        <span id="luminosidade">0</span> lux
+                    </div>
+                    <p>Intensidade de luz</p>
+                </div>
+            </section>
+
+            <!-- GRÁFICO -->
+            <section class="grafico-box">
+                <h2>Monitoramento em tempo real</h2>
+                <canvas id="grafico"></canvas>
+            </section>
+
+            <!-- DISPOSITIVO -->
+            <section class="dispositivo">
+                <div class="dispositivo">
+                    <h2>Dispositivo</h2>
+                    <p><strong>Nome:</strong> Arduino Mega 2560</p>
+                    <p>
+                        <strong>Status:</strong>
+                        <span id="statusArduino" class="status-offline">
+                            ● Offline
+                        </span>
+                    </p>
+                    <p>
+                        <strong>Última atualização:</strong>
+                        <span id="ultimaLeitura">
+                            Nunca
+                        </span>
+                    </p>
+                    <button id="btnAtualizar">
+                        Atualizar Agora
+                    </button>
+                </div>
+            </section>       
+
+
+    <script src="dash.js"></script>
+</body>
+
+</html>

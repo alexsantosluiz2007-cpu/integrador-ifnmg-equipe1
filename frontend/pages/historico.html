@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Dados</title>
+    <link rel="stylesheet" href="stylehis.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/6cc4df822f.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo">
+            </div>
+            <nav>
+                <a href="dashboard.html" class="botao-h"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="historico.html" class="botao-h ativo"><i class="fas fa-chart-line"></i> Histórico</a>
+                <a href="dispositivo.html" class="botao-h"><i class="fas fa-microchip"></i> Dispositivos</a>
+                <a href="alertas.html" class="botao-h"><i class="fas fa-bell"></i> Alertas</a>
+                <a href="perfil.html" class="botao-h"><i class="fas fa-user"></i> Perfil</a>
+                <a href="../index.html" class="botao-h"><i class="fas fa-sign-out-alt"></i> Sair</a>
+            </nav>
+        </aside>
+
+        <main class="content">
+            <header class="page-header">
+                <div>
+                    <h1><i class="fas fa-chart-line"></i>Histórico de dados</h1>
+                    <p>Consulte e analise os dados registrados do seu ambiente.</p>
+                </div>
+                <div class="top-right">
+                    <i class="far fa-clock"></i>
+                    <span id="relogio">--:--:--</span>
+                </div>
+            </header>
+
+            <section class="filtro">
+                <div class="campo">
+                    <label for="periodo">Período:</label>
+                    <select id="periodo">
+                        <option value="7">Últimos 7 dias</option>
+                        <option value="15">Últimos 15 dias</option>
+                        <option value="30">Últimos 30 dias</option>
+                        <option value="90">Últimos 90 dias</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="dataInicial">Data inicial:</label>
+                    <input type="date" id="dataInicial">
+                </div>
+
+                <div class="campo">
+                    <label for="dataFinal">Data final:</label>
+                    <input type="date" id="dataFinal">
+                </div>
+
+                <button id="btnConsultar"><i class="fas fa-search"></i>Consultar</button>
+            </section>
+
+            <section class="cards-historico">
+                <div class="card-historico temperatura-card">
+                    <div class="icone-card"><i class="fas fa-thermometer-half"></i></div>
+                    <div>
+                        <h3>Temperatura média</h3>
+                        <strong id="mediaTemperatura">0 °C</strong>
+                        <p>Máx: <span id="maxTemperatura">0</span> °C <span class="separador">|</span> Mín: <span
+                                id="minTemperatura">0</span> °C</p>
+                    </div>
+                </div>
+
+                <div class="card-historico umidade-card">
+                    <div class="icone-card"><i class="fas fa-tint"></i></div>
+                    <div>
+                        <h3>Umidade média</h3>
+                        <strong id="mediaUmidade">0 %</strong>
+                        <p>Máx: <span id="maxUmidade">0</span> % <span class="separador">|</span> Mín: <span
+                                id="minUmidade">0</span> %</p>
+                    </div>
+                </div>
+
+                <div class="card-historico luminosidade-card">
+                    <div class="icone-card"><i class="fas fa-sun"></i></div>
+                    <div>
+                        <h3>Luminosidade média</h3>
+                        <strong id="mediaLuminosidade">0 lux</strong>
+                        <p>Máx: <span id="maxLuminosidade">0</span> lux <span class="separador">|</span> Mín: <span
+                                id="minLuminosidade">0</span> lux</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="graficos-container">
+                <div class="grafico-box historico-grafico">
+                    <div class="titulo-grafico">
+                        <h2>Variação dos dados no período</h2>
+                        <p>Acompanhe a variação dos sensores durante o período selecionado.</p>
+                    </div>
+                    <div class="canvas-container">
+                        <canvas id="graficoHistorico"></canvas>
+                    </div>
+                </div>
+
+                <div class="grafico-box distribuicao">
+                    <div class="titulo-grafico">
+                        <h2>Distribuição dos níveis</h2>
+                        <p>Valores dentro da faixa ideal.</p>
+                    </div>
+
+                    <div class="grafico-circular">
+                        <canvas id="graficoCircular"></canvas>
+                    </div>
+
+                    <div class="legenda-circular">
+                        <div class="item-legenda">
+                            <span class="bolinha temperatura"></span>
+                            <div>
+                                <p>Temperatura dentro do ideal</p>
+                                <strong id="percentTemperatura">0%</strong>
+                            </div>
+                        </div>
+
+                        <div class="item-legenda">
+                            <span class="bolinha umidade"></span>
+                            <div>
+                                <p>Umidade dentro do ideal</p>
+                                <strong id="percentUmidade">0%</strong>
+                            </div>
+                        </div>
+
+                        <div class="item-legenda">
+                            <span class="bolinha luminosidade"></span>
+                            <div>
+                                <p>Luminosidade dentro do ideal</p>
+                                <strong id="percentLuminosidade">0%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tabela-box">
+                <div class="tabela-header">
+                    <div>
+                        <h2>Últimos registros</h2>
+                        <p>Dados registrados recentemente pelos sensores.</p>
+                    </div>
+                </div>
+
+                <div class="tabela-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data e Hora</th>
+                                <th>Temperatura (°C)</th>
+                                <th>Umidade (%)</th>
+                                <th>Luminosidade (lux)</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tabelaDados">
+                            <tr>
+                                <td>--</td>
+                                <td class="temperatura-texto">0</td>
+                                <td class="umidade-texto">0</td>
+                                <td class="luminosidade-texto">0</td>
+                                <td><span class="status-normal">Normal</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="info-historico">
+                <i class="fas fa-info-circle"></i>
+                <span>Os percentuais indicam o tempo em que os valores estiveram dentro da faixa ideal
+                    recomendada.</span>
+            </div>
+        </main>
+    </div>
+    <script src="hist.js"></script>
+</body>
+</html>

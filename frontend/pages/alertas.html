@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alertas - JequiTech</title>
+    <link rel="stylesheet" href="stylealert.css">
+    <script src="https://kit.fontawesome.com/6cc4df822f.js"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ==============================
+             MENU LATERAL
+        =============================== -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo JequiTech">
+            </div>
+            <nav>
+                <a href="dashboard.html" class="botao-h">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="historico.html" class="botao-h">
+                    <i class="fas fa-chart-line"></i>
+                    Histórico
+                </a>
+                <a href="dispositivo.html" class="botao-h">
+                    <i class="fas fa-microchip"></i>
+                    Dispositivos
+                </a>
+                <a href="alertas.html" class="botao-h ativo">
+                    <i class="fas fa-bell"></i>
+                    Alertas
+                </a>
+                <a href="perfil.html" class="botao-h">
+                    <i class="fas fa-user"></i>
+                    Perfil
+                </a>
+                <a href="../index.html" class="botao-h">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </a>
+            </nav>
+        </aside>
+        <!-- ==============================
+             CONTEÚDO PRINCIPAL
+        =============================== -->
+        <main class="conteudo-alertas">
+            <!-- CABEÇALHO -->
+            <header class="cabecalho-alertas">
+                <div>
+                    <h1>
+                        <i class="fas fa-bell"></i>
+                        Alertas
+                    </h1>
+
+                    <p>
+                        Acompanhe situações que precisam de atenção no ambiente.
+                    </p>
+                </div>
+                <div class="relogio">
+                    <i class="far fa-clock"></i>
+                    <span id="relogio">-----</span>
+                </div>
+            </header>
+            <!-- ==============================
+                 CARDS DE RESUMO
+            =============================== -->
+
+            <section class="cards-alertas">
+                <div class="card-resumo critico">
+                    <div class="icone-resumo">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div>
+                        <h3>Críticos</h3>
+                        <strong>0</strong>
+                        <p>Requer atenção imediata</p>
+                    </div>
+                </div>
+                <div class="card-resumo atencao">
+                    <div class="icone-resumo">
+                        <i class="fas fa-exclamation"></i>
+                    </div>
+                    <div>
+                        <h3>Atenção</h3>
+                        <strong>0</strong>
+                        <p>Fora da faixa ideal</p>
+                    </div>
+                </div>
+                <div class="card-resumo normal">
+
+                    <div class="icone-resumo">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <h3>Normais</h3>
+                        <strong>0</strong>
+                        <p>Dentro dos parâmetros</p>
+                    </div>
+                </div>
+
+
+                <div class="card-resumo total">
+                    <div class="icone-resumo">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div>
+                        <h3>Total de alertas</h3>
+                        <strong>0</strong>
+                        <p>Últimos 7 dias</p>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ==============================
+                 ÁREA INFERIOR
+            =============================== -->
+            <section class="area-alertas">
+                <!-- LISTA DE ALERTAS -->
+                <div class="painel-alertas">
+                    <div class="titulo-painel">
+                        <h2>Alertas recentes</h2>
+                        <p>
+                            Lista dos alertas mais recentes registrados pelo sistema.
+                        </p>
+                    </div>
+
+
+                    <!-- FILTROS -->
+                    <div class="filtros">
+                        <label>
+                            Filtrar por:
+                            <select>
+                                <option>Todos os níveis</option>
+                                <option>Crítico</option>
+                                <option>Atenção</option>
+                            </select>
+                        </label>
+
+
+                        <label>
+                            Status:
+                            <select>
+                                <option>Todos</option>
+                                <option>Pendente</option>
+                                <option>Resolvido</option>
+                            </select>
+                        </label>
+
+
+                        <button class="limpar">
+                            <i class="fas fa-filter"></i>
+                            Limpar filtros
+                        </button>
+                    </div>
+                    <!-- ALERTA 1 -->
+                    <div class="alerta-item">
+                        <div class="icone-alerta vermelho">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <div class="info-alerta">
+                            <h3>TEMPERATURA MUITO ALTA</h3>
+                            <p>
+                                A temperatura está acima do limite definido pelo sistema.
+                            </p>
+                            <span>
+                                Atual: <b>0 °C</b>
+                                &nbsp;•&nbsp;
+                                Limite: <b>0 °C</b>
+                            </span>
+                        </div>
+                        <div class="status-alerta">
+
+                            <span class="badge critico-badge">
+                                Crítico
+                            </span>
+                            <small>
+                                <i class="far fa-clock"></i>
+                                Há 2 min
+                            </small>
+                        </div>
+                        <button class="btn-detalhes">
+                            Ver detalhes
+                        </button>
+                    </div>
+                    <!-- ALERTA 2 -->
+                    <div class="alerta-item">
+                        <div class="icone-alerta laranja">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="info-alerta">
+                            <h3>UMIDADE BAIXA</h3>
+                            <p>
+                                A umidade está abaixo do mínimo recomendado.
+                            </p>
+                            <span>
+                                Atual: <b>0 %</b>
+                                &nbsp;•&nbsp;
+                                Mínimo: <b>0 %</b>
+                            </span>
+                        </div>
+                        <div class="status-alerta">
+                            <span class="badge atencao-badge">
+                                Atenção
+                            </span>
+                            <small>
+                                <i class="far fa-clock"></i>
+                                Há 8 min
+                            </small>
+                        </div>
+                        <button class="btn-detalhes">
+                            Ver detalhes
+                        </button>
+                    </div>
+                    <!-- ALERTA 3 -->
+                    <div class="alerta-item">
+                        <div class="icone-alerta vermelho">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="info-alerta">
+                            <h3>DISPOSITIVO OFFLINE</h3>
+                            <p>
+                                O Arduino Mega 2560 perdeu conexão com o sistema.
+                            </p>
+                            <span>
+                                Status: <b>Offline</b>
+                            </span>
+                        </div>
+                        <div class="status-alerta">
+                            <span class="badge critico-badge">
+                                Crítico
+                            </span>
+                            <small>
+                                <i class="far fa-clock"></i>
+                                Há 15 min
+                            </small>
+                        </div>
+                        <button class="btn-detalhes">
+                            Ver detalhes
+                        </button>
+                    </div>
+                    <!-- ALERTA 4 -->
+                    <div class="alerta-item">
+                        <div class="icone-alerta amarelo">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="info-alerta">
+                            <h3>LUMINOSIDADE ALTA</h3>
+                            <p>
+                                A luminosidade está acima do limite recomendado.
+                            </p>
+                            <span>
+                                Atual: <b>0 lux</b>
+                                &nbsp;•&nbsp;
+                                Limite: <b>0 lux</b>
+                            </span>
+                        </div>
+                        <div class="status-alerta">
+                            <span class="badge atencao-badge">
+                                Atenção
+                            </span>
+                            <small>
+                                <i class="far fa-clock"></i>
+                                Há 32 min
+                            </small>
+                        </div>
+                        <button class="btn-detalhes">
+                            Ver detalhes
+                        </button>
+                    </div>
+                    <!-- ALERTA 5 -->
+                    <div class="alerta-item">
+                        <div class="icone-alerta azul">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="info-alerta">
+                            <h3>UMIDADE ALTA</h3>
+                            <p>
+                                A umidade está acima do limite definido pelo sistema.
+                            </p>
+                            <span>
+                                Atual: <b>0 %</b>
+                                &nbsp;•&nbsp;
+                                Limite: <b>0 %</b>
+                            </span>
+                        </div>
+                        <div class="status-alerta">
+                            <span class="badge atencao-badge">
+                                Atenção
+                            </span>
+                            <small>
+                                <i class="far fa-clock"></i>
+                                Há 1 h
+                            </small>
+                        </div>
+                        <button class="btn-detalhes">
+                            Ver detalhes
+                        </button>
+                    </div>
+                    <button class="ver-todos">
+                        Ver todos os alertas
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <!-- ==============================
+                     LADO DIREITO
+                =============================== -->
+                <div class="coluna-direita">
+                    <!-- GRÁFICO -->
+                    <div class="painel-grafico">
+                        <h2>Resumo por tipo de alerta</h2>
+                        <p>
+                            Quantidade de alertas por categoria nos últimos 7 dias.
+                        </p>
+                        <div class="grafico-area">
+                            <div class="grafico-circular">
+                                <div class="grafico-centro">
+                                    <strong>0</strong>
+                                    <span>Alertas</span>
+                                </div>
+                            </div>
+                            <div class="legenda">
+                                <div>
+                                    <span class="bolinha vermelho-bg"></span>
+                                    <p>
+                                        Temperatura<br>
+                                        <small>0 alertas</small>
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="bolinha azul-bg"></span>
+                                    <p>
+                                        Umidade<br>
+                                        <small>0 alertas</small>
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="bolinha amarelo-bg"></span>
+                                    <p>
+                                        Luminosidade<br>
+                                        <small>0 alertas</small>
+                                    </p>
+                                </div>
+                                <div>
+                                    <span class="bolinha laranja-bg"></span>
+                                    <p>
+                                        Dispositivos<br>
+                                        <small>0 alertas</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="alert.js"></script>
+</body>
+</html>
