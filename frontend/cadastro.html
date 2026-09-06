@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Cadastro</title>
+    <style>
+        .bi {
+            position: absolute;
+            color: #888;
+        }
+        .bi-person {
+            position: absolute;
+            margin-top: px;
+            margin-left: 10px;
+            color: #333;
+        }
+        .bi-envelope {
+            position: absolute;
+            margin-top: 30px;
+            margin-left: -31px;
+        }
+        .bi-person-badge {
+            position: absolute;
+            margin-top: 30px;
+            margin-left: -43px;
+        }
+        .bi-lock {
+            position: absolute;
+            margin-top: 30px;
+            margin-left: -31px;
+        }
+
+        .bi-lock-fill {
+            position: absolute;
+            margin-top: 30px;
+            margin-left: -103px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cad">
+        <form id="formCadastro">
+            <label for="username" class="nomecad">Nome:</label>
+            <i class="bi bi-person"></i>
+            <input type="text" id="username" name="username" placeholder="Digite seu nome" required
+                class="nome2"><br><br>
+
+            <label for="email">Email:</label>
+            <i class="bi bi-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required class="email"><br><br>
+
+            <label for="usuario">Usuario:</label>
+            <i class="bi bi-person-badge"></i>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuario" required
+                class="usuario2"><br><br>
+
+            <label for="password">Senha:</label>
+            <i class="bi bi-lock"></i>
+            <input type="password" id="senha" name="password" placeholder="Digite sua senha" required
+                class="senhacad"><br><br>
+
+            <label for="password">Confirmar Senha:</label>
+            <i class="bi bi-lock-fill"></i>
+            <input type="password" id="confirmarSenha" name="password" placeholder="Confirme sua senha" required
+                class="confirmar-senha"><br><br>
+
+            <input type="submit" value="Cadastrar" class="cadastrar">
+            <a href="index.html" class="cadastt">Já tem uma conta ? Entrar</a>
+
+            <img src="img2/image.png" alt="Logo do site" class="logo2">
+
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("formCadastro");
+        // CRIA TELA DE LOADING
+        const telaLoading = document.createElement("div");
+
+        telaLoading.innerHTML = `
+        <div class="spinner"></div>
+        <p id="mensagemLoading">Cadastrando usuário...</p>
+    `;
+
+        telaLoading.style.position = "fixed";
+        telaLoading.style.top = "0";
+        telaLoading.style.left = "0";
+        telaLoading.style.width = "100%";
+        telaLoading.style.height = "100vh";
+        telaLoading.style.background = "rgba(0,0,0,0.7)";
+        telaLoading.style.display = "none";
+        telaLoading.style.justifyContent = "center";
+        telaLoading.style.alignItems = "center";
+        telaLoading.style.flexDirection = "column";
+        telaLoading.style.zIndex = "999";
+        telaLoading.style.color = "white";
+
+        document.body.appendChild(telaLoading);
+
+        // ESTILO DO SPINNER
+        const style = document.createElement("style");
+        style.innerHTML = `
+        .spinner{
+            width: 60px;
+            height: 60px;
+            border: 6px solid white;
+            border-top: 6px solid #1faa59;
+            border-radius: 50%;
+            animation: girar 1s linear infinite;
+        }
+        @keyframes girar{
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        #mensagemLoading{
+            margin-top: 20px;
+            font-size: 20px;
+            font-family: Arial;
+        }
+    `;
+
+        document.head.appendChild(style);
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // PEGANDO VALORES
+            const nome = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const usuario = document.getElementById("usuario").value;
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            // VERIFICA SENHAS
+            if (senha !== confirmarSenha) {
+                telaLoading.style.display = "flex";
+                document.getElementById("mensagemLoading").innerHTML =
+                    "❌ As senhas não coincidem";
+                setTimeout(() => {
+                    telaLoading.style.display = "none";
+                }, 2000);
+                return;
+            }
+            // MOSTRA LOADING
+            telaLoading.style.display = "flex";
+            document.getElementById("mensagemLoading").innerHTML =
+                "Cadastrando usuário...";
+
+            // OBJETO DOS DADOS
+            const dados = {
+                nome,
+                email,
+                usuario,
+                senha
+            };
+
+            try {
+                const resposta = await fetch(
+                    "https://tradition-repulsion-quiver.ngrok-free.dev/Usuario",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(dados)
+                    }
+                );
+                const resultado = await resposta.json();
+
+                // SE CADASTRO DER CERTO
+                if (resposta.ok) {
+                    document.getElementById("mensagemLoading").innerHTML =
+                        "✅ Usuário cadastrado com sucesso!";
+
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 2000);
+
+                } else {
+                    document.getElementById("mensagemLoading").innerHTML =
+                        "❌ Erro ao cadastrar usuário";
+                    setTimeout(() => {
+                        telaLoading.style.display = "none";
+                    }, 2000);
+                }
+
+            } catch (erro) {
+                document.getElementById("mensagemLoading").innerHTML =
+                    "❌ Erro ao conectar com a REDE";
+                setTimeout(() => {
+                    telaLoading.style.display = "none";
+                }, 2000);
+                console.log(erro);
+            }
+        });
+    </script>
+</body>
+
+</html>

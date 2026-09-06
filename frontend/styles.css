@@ -1,0 +1,286 @@
+.body {
+    background-color: #fefcfc;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+.login{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8%;
+    box-shadow: -10px 0 50px rgba(18, 2, 2, 0.295);
+    width: 300px;
+    margin: 50px auto;
+    height: 450px;
+}
+.tela{
+    text-align: center;
+    color: #333;
+}
+.entrar{
+    background-color: #105323c8;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.entrar:hover {
+    background-color: #105323;
+    transform: scale(1.05);
+}
+.nome, .senha {
+    width: 100%;
+    padding: 4px;
+    padding-left: 30px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #dcdcdc; 
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+.nome:focus, .senha:focus {
+    border-color: #0b430c;
+    box-shadow: 0 0 8px rgba(18, 120, 40, 0.3);
+}
+.alterar-senha{
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+}
+.cadastro{
+    display: block;
+    margin-top: -17.5px;
+    text-decoration: none;
+    text-align: right;
+}
+.usuario{
+    display: block;
+    margin-top: 200px;
+    color: #333;
+}
+.logo{
+    display: block;
+    margin: -400px auto;
+    width: 270px;
+    height: auto;
+    right: 100px;
+    border-radius: 20%;
+}
+.bi-person{
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 8px;
+    color: #333;
+   
+}
+.bi-lock{
+    position: absolute;
+    margin-top: 30px;
+    margin-left: -45px;
+    color: #333;
+}
+
+/*Cadastro:*/
+
+.cad{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: -10px 0 50px rgba(18, 2, 2, 0.295);
+    width: 300px;
+    margin: 50px auto;
+    height: 670px;
+}
+.nomecad{
+    display: block;
+    margin-top: 200px;
+    color: #333;
+}
+.nome2,
+.email,
+.usuario2,
+.senhacad,
+.confirmar-senha {
+    width: 100%;
+    padding: 4px;
+    padding-left: 30px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #dcdcdc;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+.nome2:focus,
+.email:focus,
+.usuario2:focus,
+.senhacad:focus,
+.confirmar-senha:focus {
+    border-color: #0b430c;
+    box-shadow: 0 0 8px rgba(18, 120, 40, 0.3);
+}
+.cadastrar:hover {
+    background-color: #105323;
+    transform: scale(1.03);
+}
+.cadastrar{
+    background-color: #105323c8;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.cadastt{
+    display: block;
+    margin-top: 2%;
+    text-decoration: none;
+    text-align: right;
+   width: 78%;
+}
+.logo2{
+    display: block;
+    margin: -620px auto;
+    width: 270px;
+    height: auto;
+    right: 100px;
+    border-radius: 20%;
+
+}
+ /*Alterar senha:*/
+.altsenha{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: -10px 0 50px rgba(8, 2, 18, 0.295);
+    width: 300px;
+    margin: 100px auto;
+    height: 320px;
+}
+.email-alt {
+    width: 100%;
+    padding: 4px;
+    padding-left: 30px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #dcdcdc;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+
+}
+.email-alt:focus {
+    border-color: #0b430c;
+    box-shadow: 0 0 8px rgba(18, 120, 40, 0.3);
+}
+.email-altsenha{
+    display: block;
+    margin-top: 135px;
+    color: #333;
+}
+.login-page{
+    display: block;
+    margin-top: 10.5px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
+.continuar{
+    background-color: #105323c8;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.continuar:hover {
+    background-color: #105323;
+    transform: scale(1.03);
+}
+.logo3{
+    display: block;
+    margin: -310px auto;
+    width: 270px;
+    height: auto;
+    right: 100px;
+    border-radius: 20%;
+}
+/* tela código de acesso:*/
+.cod{
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: -10px 0 50px rgba(8, 2, 18, 0.295);
+    width: 300px;
+    margin: 100px auto;
+    height: 320px;
+}
+.acesso {
+    width: 100%;
+    padding: 4px;
+    padding-left: 30px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    border: 2px solid #dcdcdc;
+    border-radius: 14px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+.botao-verificar {
+    background-color: #105323c8;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+.botao-verificar:hover {
+    background-color: #105323;
+    transform: scale(1.03);
+}
+.text-cod{
+    display: block;
+    margin-top: 150px;
+    color: #333;
+}
+.logo4{
+    display: block;
+    margin: -285px auto;
+    width: 270px;
+    height: auto;
+    right: 100px;
+    border-radius: 20%;
+}
+.voltar-cod{
+    display: block;
+    margin-top: 10.5px;
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+}
