@@ -1,0 +1,15 @@
+{
+  "name": "serial-gateway-arduino",
+  "version": "1.0.0",
+  "description": "Gateway serial para receber JSON do Arduino e enviar para backend JS",
+  "type": "module",
+  "main": "serial-gateway.js",
+  "scripts": {
+    "start": "node serial-gateway.js"
+  },
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "express": "^5.2.1",
+    "serialport": "^13.0.0"
+  }
+}
