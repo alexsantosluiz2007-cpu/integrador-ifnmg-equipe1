@@ -1,0 +1,19 @@
+{
+  "name": "jequitech-api",
+  "version": "1.0.0",
+  "description": "API REST do sistema de monitoramento JequiTech (Arduino Mega 2560)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "mysql2": "^3.11.0"
+  }
+}
