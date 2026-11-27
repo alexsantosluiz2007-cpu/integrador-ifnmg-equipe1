@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil – JequiTech</title>
+    <link rel="stylesheet" href="CSS/styleperfil.css">
+    <script src="https://kit.fontawesome.com/6cc4df822f.js" crossorigin="anonymous"></script>
+  <script src="../config.js"></script>
+  <script src="JS/auth.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="img/logo2.png" alt="Logo JequiTech">
+            </div>
+            <nav>
+                <a href="dashboard.html" class="botao-h">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="historico.html" class="botao-h">
+                    <i class="fas fa-chart-line"></i>
+                    Histórico
+                </a>
+                <a href="dispositivo.html" class="botao-h">
+                    <i class="fas fa-microchip"></i>
+                    Dispositivos
+                </a>
+                <a href="alertas.html" class="botao-h">
+                    <i class="fas fa-bell"></i>
+                    Alertas
+                </a>
+                <a href="perfil.html" class="botao-h ativo">
+                    <i class="fas fa-user"></i>
+                    Perfil
+                </a>
+                <a href="../index.html" class="botao-h" id="btnSair">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </a>
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="content">
+            <!-- CABEÇALHO -->
+            <header class="page-header">
+                <div>
+                    <h1>
+                        <i class="fas fa-user"></i>
+                        Perfil
+                    </h1>
+                    <p>
+                        Gerencie suas informações pessoais e visualize os limites dos sensores do sistema.
+                    </p>
+                </div>
+
+                <div class="top-right">
+                    <i class="far fa-clock"></i>
+                    <span id="relogio">--:--:--</span>
+                </div>
+            </header>
+
+            <!-- INFORMAÇÕES DO USUÁRIO -->
+            <section class="perfil-card">
+                <div class="card-title">
+                    <h2>
+                        <i class="fas fa-user"></i>
+                        Informações do usuário
+                    </h2>
+                </div>
+
+                <form id="formPerfil" class="usuario-area">
+                    <!-- FOTO -->
+                    <div class="foto-container">
+                        <div class="foto-perfil">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+
+                    <!-- CAMPOS (APENAS NOME, TELEFONE, USUÁRIO E E-MAIL) -->
+                    <div class="dados-usuario">
+                        <div class="campo">
+                            <label for="nomeCompleto">Nome completo</label>
+                            <input 
+                                type="text"
+                                id="nomeCompleto"
+                                placeholder="Digite seu nome completo"
+                                disabled
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="telefone">Telefone</label>
+                            <input 
+                                type="text"
+                                id="telefone"
+                                placeholder="Digite seu telefone"
+                                disabled
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="usuario">Nome de usuário</label>
+                            <input 
+                                type="text"
+                                id="usuario"
+                                placeholder="Digite seu nome de usuário"
+                                disabled
+                                required
+                            >
+                        </div>
+
+                        <div class="campo">
+                            <label for="email">E-mail</label>
+                            <input 
+                                type="email"
+                                id="email"
+                                placeholder="Digite seu e-mail"
+                                disabled
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- BOTÃO EDITAR / SALVAR -->
+                    <button type="button" class="btn-editar" id="btnEditar">
+                        <i class="fas fa-edit" id="btnIconEditar"></i>
+                        <span id="btnTextEditar">Editar informações</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- LIMITES -->
+            <section class="limites-card">
+                <div class="card-title">
+                    <h2>
+                        <i class="fas fa-temperature-high"></i>
+                        Limites atuais dos sensores
+                    </h2>
+                    <p>
+                        Estes são os valores reais utilizados pelo sistema para gerar alertas.
+                    </p>
+                </div>
+                <div class="limites-container">
+                    <!-- TEMPERATURA -->
+                    <div class="limite">
+                        <div class="limite-titulo">
+                            <span class="icone temperatura">
+                                <i class="fas fa-thermometer-half"></i>
+                            </span>
+                            <strong>Temperatura (°C)</strong>
+                        </div>
+                        <div class="valores">
+                            <div>
+                                <span>Limite mínimo</span>
+                                <strong class="valor temperatura-texto">15 °C</strong>
+                            </div>
+                            <div class="linha"></div>
+                            <div>
+                                <span>Limite máximo</span>
+                                <strong class="valor temperatura-texto">35 °C</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UMIDADE -->
+                    <div class="limite">
+                        <div class="limite-titulo">
+                            <span class="icone umidade">
+                                <i class="fas fa-tint"></i>
+                            </span>
+                            <strong>Umidade Relativa (%)</strong>
+                        </div>
+                        <div class="valores">
+                            <div>
+                                <span>Limite mínimo</span>
+                                <strong class="valor umidade-texto">30 %</strong>
+                            </div>
+                            <div class="linha"></div>
+                            <div>
+                                <span>Limite máximo</span>
+                                <strong class="valor umidade-texto">80 %</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LUMINOSIDADE -->
+                    <div class="limite">
+                        <div class="limite-titulo">
+                            <span class="icone luminosidade">
+                                <i class="fas fa-sun"></i>
+                            </span>
+                            <strong>Luminosidade (lux)</strong>
+                        </div>
+                        <div class="valores">
+                            <div>
+                                <span>Limite mínimo</span>
+                                <strong class="valor luminosidade-texto">100 lux</strong>
+                            </div>
+                            <div class="linha"></div>
+                            <div>
+                                <span>Limite máximo</span>
+                                <strong class="valor luminosidade-texto">1000 lux</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AVISO -->
+                <div class="aviso">
+                    <i class="fas fa-info-circle"></i>
+                    <span>
+                        Os limites acima são utilizados pelo sistema para identificar condições fora da faixa ideal e gerar alertas.
+                    </span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="JS/perfil.js"></script>
+</body>
+</html>

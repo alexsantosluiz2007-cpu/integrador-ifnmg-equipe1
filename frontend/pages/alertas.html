@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alertas - JequiTech</title>
+    <link rel="stylesheet" href="CSS/stylealert.css" />
+    <script
+      src="https://kit.fontawesome.com/6cc4df822f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../config.js"></script>
+  <script src="JS/auth.js"></script>
+</head>
+
+  <body>
+    <div class="container">
+      <!-- MENU LATERAL -->
+      <aside class="sidebar">
+        <div class="logo">
+          <img src="img/logo2.png" alt="Logo JequiTech" />
+        </div>
+        <nav>
+          <a href="dashboard.html" class="botao-h">
+            <i class="fas fa-home"></i> Dashboard
+          </a>
+          <a href="historico.html" class="botao-h">
+            <i class="fas fa-chart-line"></i> Histórico
+          </a>
+          <a href="dispositivo.html" class="botao-h">
+            <i class="fas fa-microchip"></i> Dispositivos
+          </a>
+          <a href="alertas.html" class="botao-h ativo">
+            <i class="fas fa-bell"></i> Alertas
+          </a>
+          <a href="perfil.html" class="botao-h">
+            <i class="fas fa-user"></i> Perfil
+          </a>
+          <a href="../index.html" class="botao-h">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </a>
+        </nav>
+      </aside>
+
+      <!-- CONTEÚDO PRINCIPAL -->
+      <main class="conteudo-alertas">
+        <header class="cabecalho-alertas">
+          <div>
+            <h1><i class="fas fa-bell"></i> Alertas</h1>
+            <p>Acompanhe situações que precisam de atenção no ambiente.</p>
+          </div>
+          <div class="relogio">
+            <i class="far fa-clock"></i>
+            <span id="relogio">--:--:--</span>
+          </div>
+        </header>
+
+        <!-- CARDS DE RESUMO (Zerar por padrão) -->
+        <section class="cards-alertas">
+          <div class="card-resumo critico">
+            <div class="icone-resumo">
+              <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <div>
+              <h3>Críticos</h3>
+              <strong id="card-criticos">0</strong>
+              <p>Requer atenção imediata</p>
+            </div>
+          </div>
+          <div class="card-resumo atencao">
+            <div class="icone-resumo"><i class="fas fa-exclamation"></i></div>
+            <div>
+              <h3>Atenção</h3>
+              <strong id="card-atencao">0</strong>
+              <p>Fora da faixa ideal</p>
+            </div>
+          </div>
+          <div class="card-resumo normal">
+            <div class="icone-resumo"><i class="fas fa-check"></i></div>
+            <div>
+              <h3>Normais</h3>
+              <strong id="card-normais">0</strong>
+              <p>Dentro dos parâmetros</p>
+            </div>
+          </div>
+          <div class="card-resumo total">
+            <div class="icone-resumo"><i class="fas fa-bell"></i></div>
+            <div>
+              <h3>Total de alertas</h3>
+              <strong id="card-total">0</strong>
+              <p>Últimos 7 dias</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ÁREA DE ALERTAS -->
+        <section class="area-alertas">
+          <div class="painel-alertas">
+            <div
+              class="titulo-painel"
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div>
+                <h2>Alertas recentes</h2>
+                <p>Lista dos alertas mais recentes registrados pelo sistema.</p>
+              </div>
+              
+             
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filtros">
+              <label>
+                Filtrar por:
+                <select id="filtro-nivel">
+                  <option value="todos">Todos os níveis</option>
+                  <option value="Crítico">Crítico</option>
+                  <option value="Atenção">Atenção</option>
+                </select>
+              </label>
+
+              <label>
+                Status:
+                <select id="filtro-status">
+                  <option value="todos">Todos</option>
+                  <option value="Pendente">Pendente</option>
+                  <option value="Ciente">Ciente</option>
+                </select>
+              </label>
+
+              <label>
+                Sensor:
+                <select id="filtro-sensor">
+                  <option value="todos">Todos</option>
+                  <option value="temperatura">Temperatura</option>
+                  <option value="umidade">Umidade</option>
+                  <option value="luminosidade">Luminosidade</option>
+                </select>
+              </label>
+
+              <!-- Troque a linha do botão na div class="filtros" por esta: -->
+              <button class="limpar" id="btn-limpar-filtros">
+                <i class="fas fa-trash-alt"></i> Limpar notificações
+              </button>
+            </div>
+
+            <!-- CONTAINER ONDE OS ALERTAS DA API VÃO APARECER DINAMICAMENTE -->
+            <div id="lista-alertas-container"></div>
+          </div>
+
+          <!-- GRÁFICO CIRCULAR VIA JS -->
+          <div class="coluna-direita">
+            <div class="painel-grafico">
+              <h2>Resumo por tipo de alerta</h2>
+              <p>Quantidade de alertas por categoria nos últimos 7 dias.</p>
+
+              <div class="grafico-wrapper">
+                <canvas id="graficoAlertas"></canvas>
+                <div class="grafico-centro-js">
+                  <strong id="total-grafico-centro">0</strong>
+                  <span>Alertas</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="JS/alert.js"></script>
+  </body>
+</html>
+>
